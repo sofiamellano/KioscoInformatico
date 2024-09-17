@@ -50,6 +50,7 @@
             // 
             // MenuItemPrincipal
             // 
+            MenuItemPrincipal.ForeColor = Color.Black;
             MenuItemPrincipal.IconChar = FontAwesome.Sharp.IconChar.House;
             MenuItemPrincipal.IconColor = Color.Black;
             MenuItemPrincipal.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -77,7 +78,7 @@
             MenuItemLocalidades.IconSize = 28;
             MenuItemLocalidades.ImageScaling = ToolStripItemImageScaling.None;
             MenuItemLocalidades.Name = "MenuItemLocalidades";
-            MenuItemLocalidades.Size = new Size(192, 34);
+            MenuItemLocalidades.Size = new Size(148, 34);
             MenuItemLocalidades.Text = "Localidades";
             MenuItemLocalidades.Click += MenuItemLocalidades_Click;
             // 
@@ -89,7 +90,7 @@
             iconMenuItemProducto.IconSize = 28;
             iconMenuItemProducto.ImageScaling = ToolStripItemImageScaling.None;
             iconMenuItemProducto.Name = "iconMenuItemProducto";
-            iconMenuItemProducto.Size = new Size(192, 34);
+            iconMenuItemProducto.Size = new Size(148, 34);
             iconMenuItemProducto.Text = "Productos";
             iconMenuItemProducto.Click += iconMenuItemProducto_Click;
             // 

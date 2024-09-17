@@ -96,51 +96,57 @@
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEliminar.BackColor = Color.OrangeRed;
+            btnEliminar.ForeColor = Color.White;
             btnEliminar.IconChar = FontAwesome.Sharp.IconChar.ToiletPortable;
-            btnEliminar.IconColor = Color.Black;
+            btnEliminar.IconColor = Color.White;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.IconSize = 45;
+            btnEliminar.IconSize = 44;
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(761, 202);
+            btnEliminar.Location = new Point(761, 220);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(108, 44);
+            btnEliminar.Size = new Size(108, 54);
             btnEliminar.TabIndex = 3;
             btnEliminar.Text = "Eli&minar";
             btnEliminar.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.UseVisualStyleBackColor = false;
             btnEliminar.Click += btnEliminar_Click;
             // 
             // btnEditar
             // 
             btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEditar.BackColor = Color.OrangeRed;
+            btnEditar.ForeColor = Color.White;
             btnEditar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            btnEditar.IconColor = Color.Black;
+            btnEditar.IconColor = Color.White;
             btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEditar.IconSize = 45;
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditar.Location = new Point(761, 138);
+            btnEditar.Location = new Point(761, 143);
             btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(108, 44);
+            btnEditar.Size = new Size(108, 54);
             btnEditar.TabIndex = 2;
             btnEditar.Text = "&Editar";
             btnEditar.TextAlign = ContentAlignment.MiddleRight;
-            btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.UseVisualStyleBackColor = false;
             btnEditar.Click += btnEditar_Click;
             // 
             // btnAgregar
             // 
             btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAgregar.BackColor = Color.OrangeRed;
+            btnAgregar.ForeColor = Color.White;
             btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            btnAgregar.IconColor = Color.Black;
+            btnAgregar.IconColor = Color.White;
             btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
             btnAgregar.Location = new Point(761, 73);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(108, 44);
+            btnAgregar.Size = new Size(108, 54);
             btnAgregar.TabIndex = 1;
             btnAgregar.Text = "&Agregar";
             btnAgregar.TextAlign = ContentAlignment.MiddleRight;
-            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.UseVisualStyleBackColor = false;
             btnAgregar.Click += btnAgregar_Click;
             // 
             // dataGridLocalidadesView

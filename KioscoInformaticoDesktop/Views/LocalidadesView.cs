@@ -58,6 +58,7 @@ namespace KioscoInformaticoDesktop.Views
                 {
                     Nombre = txtNombre.Text
                 };
+                await localidadService.AddAsync(localidad);
             }
 
             await CargarGrilla();
