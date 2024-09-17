@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             panel1 = new Panel();
             label1 = new Label();
             tabControl = new TabControl();
             tabPageLista = new TabPage();
+            iconButtonBuscar = new FontAwesome.Sharp.IconButton();
+            txtFiltro = new TextBox();
+            label3 = new Label();
             iconButtonEliminar = new FontAwesome.Sharp.IconButton();
             iconButtonEditar = new FontAwesome.Sharp.IconButton();
             iconButtonAgregar = new FontAwesome.Sharp.IconButton();
@@ -87,6 +91,9 @@
             // 
             // tabPageLista
             // 
+            tabPageLista.Controls.Add(iconButtonBuscar);
+            tabPageLista.Controls.Add(txtFiltro);
+            tabPageLista.Controls.Add(label3);
             tabPageLista.Controls.Add(iconButtonEliminar);
             tabPageLista.Controls.Add(iconButtonEditar);
             tabPageLista.Controls.Add(iconButtonAgregar);
@@ -102,12 +109,47 @@
             tabPageLista.Text = "Lista";
             tabPageLista.UseVisualStyleBackColor = true;
             // 
+            // iconButtonBuscar
+            // 
+            iconButtonBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            iconButtonBuscar.BackColor = Color.OrangeRed;
+            iconButtonBuscar.ForeColor = Color.White;
+            iconButtonBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            iconButtonBuscar.IconColor = Color.White;
+            iconButtonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonBuscar.Location = new Point(762, 11);
+            iconButtonBuscar.Name = "iconButtonBuscar";
+            iconButtonBuscar.Size = new Size(108, 56);
+            iconButtonBuscar.TabIndex = 9;
+            iconButtonBuscar.Text = "&Buscar";
+            iconButtonBuscar.TextAlign = ContentAlignment.MiddleRight;
+            iconButtonBuscar.UseVisualStyleBackColor = false;
+            iconButtonBuscar.Click += iconButtonBuscar_Click;
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(18, 37);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(721, 23);
+            txtFiltro.TabIndex = 8;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(18, 11);
+            label3.Name = "label3";
+            label3.Size = new Size(97, 15);
+            label3.TabIndex = 7;
+            label3.Text = "Buscar Producto:";
+            // 
             // iconButtonEliminar
             // 
             iconButtonEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             iconButtonEliminar.BackColor = Color.OrangeRed;
             iconButtonEliminar.ForeColor = Color.White;
-            iconButtonEliminar.IconChar = FontAwesome.Sharp.IconChar.ToiletPortable;
+            iconButtonEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             iconButtonEliminar.IconColor = Color.White;
             iconButtonEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             iconButtonEliminar.IconSize = 44;
@@ -211,6 +253,15 @@
             dataGridProductosView.AllowUserToDeleteRows = false;
             dataGridProductosView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridProductosView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridProductosView.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridProductosView.Location = new Point(3, 73);
             dataGridProductosView.Name = "dataGridProductosView";
             dataGridProductosView.ReadOnly = true;
@@ -236,6 +287,7 @@
             // 
             // numericPrecio
             // 
+            numericPrecio.DecimalPlaces = 2;
             numericPrecio.Location = new Point(389, 155);
             numericPrecio.Maximum = new decimal(new int[] { 10000, 0, 0, 0 });
             numericPrecio.Name = "numericPrecio";
@@ -306,11 +358,13 @@
             Controls.Add(tabControl);
             Controls.Add(panel1);
             Name = "ProductosView";
+            StartPosition = FormStartPosition.CenterParent;
             Text = "ProductosView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabControl.ResumeLayout(false);
             tabPageLista.ResumeLayout(false);
+            tabPageLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridProductosView).EndInit();
             tabPageAgregarEditar.ResumeLayout(false);
             tabPageAgregarEditar.PerformLayout();
@@ -338,5 +392,8 @@
         private FontAwesome.Sharp.IconButton iconButtonAgregar;
         private NumericUpDown numericPrecio;
         private Label txtPrecio;
+        private FontAwesome.Sharp.IconButton iconButtonBuscar;
+        private TextBox txtFiltro;
+        private Label label3;
     }
 }

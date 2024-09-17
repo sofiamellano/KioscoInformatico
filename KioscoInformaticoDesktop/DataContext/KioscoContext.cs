@@ -21,11 +21,6 @@ public partial class KioscoContext : DbContext
 
     public virtual DbSet<Compra> Compras { get; set; }
 
-    public virtual DbSet<Detallescompra> Detallescompras { get; set; }
-
-
-    public virtual DbSet<Efmigrationshistory> Efmigrationshistories { get; set; }
-
     public virtual DbSet<Localidad> Localidades { get; set; }
 
     public virtual DbSet<Producto> Productos { get; set; }
@@ -123,16 +118,6 @@ public partial class KioscoContext : DbContext
             entity.HasOne(d => d.Venta).WithMany(p => p.Detallesventa)
                 .HasForeignKey(d => d.VentaId)
                 .HasConstraintName("FK_DetallesVentas_Ventas_VentaId");
-        });
-
-        modelBuilder.Entity<Efmigrationshistory>(entity =>
-        {
-            entity.HasKey(e => e.MigrationId).HasName("PRIMARY");
-
-            entity.ToTable("__efmigrationshistory");
-
-            entity.Property(e => e.MigrationId).HasMaxLength(150);
-            entity.Property(e => e.ProductVersion).HasMaxLength(32);
         });
 
         modelBuilder.Entity<Localidad>(entity =>

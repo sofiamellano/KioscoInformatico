@@ -32,6 +32,9 @@
             label1 = new Label();
             tabControl = new TabControl();
             tabPageLista = new TabPage();
+            iconButtonBuscar = new FontAwesome.Sharp.IconButton();
+            txtFiltro = new TextBox();
+            label3 = new Label();
             btnEliminar = new FontAwesome.Sharp.IconButton();
             btnEditar = new FontAwesome.Sharp.IconButton();
             btnAgregar = new FontAwesome.Sharp.IconButton();
@@ -81,6 +84,9 @@
             // 
             // tabPageLista
             // 
+            tabPageLista.Controls.Add(iconButtonBuscar);
+            tabPageLista.Controls.Add(txtFiltro);
+            tabPageLista.Controls.Add(label3);
             tabPageLista.Controls.Add(btnEliminar);
             tabPageLista.Controls.Add(btnEditar);
             tabPageLista.Controls.Add(btnAgregar);
@@ -93,12 +99,47 @@
             tabPageLista.Text = "Lista";
             tabPageLista.UseVisualStyleBackColor = true;
             // 
+            // iconButtonBuscar
+            // 
+            iconButtonBuscar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            iconButtonBuscar.BackColor = Color.OrangeRed;
+            iconButtonBuscar.ForeColor = Color.White;
+            iconButtonBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            iconButtonBuscar.IconColor = Color.White;
+            iconButtonBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            iconButtonBuscar.ImageAlign = ContentAlignment.MiddleLeft;
+            iconButtonBuscar.Location = new Point(761, 6);
+            iconButtonBuscar.Name = "iconButtonBuscar";
+            iconButtonBuscar.Size = new Size(108, 54);
+            iconButtonBuscar.TabIndex = 6;
+            iconButtonBuscar.Text = "&Buscar";
+            iconButtonBuscar.TextAlign = ContentAlignment.MiddleRight;
+            iconButtonBuscar.UseVisualStyleBackColor = false;
+            iconButtonBuscar.Click += iconButtonBuscar_Click;
+            // 
+            // txtFiltro
+            // 
+            txtFiltro.Location = new Point(124, 23);
+            txtFiltro.Name = "txtFiltro";
+            txtFiltro.Size = new Size(615, 23);
+            txtFiltro.TabIndex = 5;
+            txtFiltro.TextChanged += txtFiltro_TextChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(25, 26);
+            label3.Name = "label3";
+            label3.Size = new Size(93, 15);
+            label3.TabIndex = 4;
+            label3.Text = "Busar Localidad:";
+            // 
             // btnEliminar
             // 
             btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             btnEliminar.BackColor = Color.OrangeRed;
             btnEliminar.ForeColor = Color.White;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.ToiletPortable;
+            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             btnEliminar.IconColor = Color.White;
             btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             btnEliminar.IconSize = 44;
@@ -236,6 +277,7 @@
             panel1.PerformLayout();
             tabControl.ResumeLayout(false);
             tabPageLista.ResumeLayout(false);
+            tabPageLista.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridLocalidadesView).EndInit();
             tabPageAgregarEditar.ResumeLayout(false);
             tabPageAgregarEditar.PerformLayout();
@@ -257,5 +299,8 @@
         private FontAwesome.Sharp.IconButton btnAgregar;
         private FontAwesome.Sharp.IconButton btnEditar;
         private FontAwesome.Sharp.IconButton btnEliminar;
+        private FontAwesome.Sharp.IconButton iconButtonBuscar;
+        private TextBox txtFiltro;
+        private Label label3;
     }
 }
