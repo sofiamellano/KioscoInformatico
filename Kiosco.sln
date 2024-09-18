@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35027.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioscoInformaticoServices", "KioscoInformaticoServices\KioscoInformaticoServices.csproj", "{8D967379-A95D-41EF-B9B0-C9BAB33E9979}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioscoInformaticoServices", "KioscoInformaticoServices\KioscoInformaticoServices.csproj", "{8D967379-A95D-41EF-B9B0-C9BAB33E9979}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioscoInformaticoDesktop", "KioscoInformaticoDesktop\KioscoInformaticoDesktop.csproj", "{8FD2014C-0037-4019-A2A1-2E652D63341D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioscoInformaticoBackend", "KioscoInformaticoBackend\KioscoInformaticoBackend.csproj", "{CC40ED86-A9FF-45C5-9F48-12CDA50C32AC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KioscoInformaticoApp", "KioscoInformaticoApp\KioscoInformaticoApp\KioscoInformaticoApp.csproj", "{4192C63E-EF4D-42D4-8FB0-42E7A396F5A1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KioscoInformaticoWeb", "KioscoInformaticoWeb\KioscoInformaticoWeb.csproj", "{7A0540D8-47BD-438C-96E4-BD737925E02D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,6 +37,10 @@ Global
 		{4192C63E-EF4D-42D4-8FB0-42E7A396F5A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4192C63E-EF4D-42D4-8FB0-42E7A396F5A1}.Release|Any CPU.Build.0 = Release|Any CPU
 		{4192C63E-EF4D-42D4-8FB0-42E7A396F5A1}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{7A0540D8-47BD-438C-96E4-BD737925E02D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A0540D8-47BD-438C-96E4-BD737925E02D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A0540D8-47BD-438C-96E4-BD737925E02D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A0540D8-47BD-438C-96E4-BD737925E02D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
