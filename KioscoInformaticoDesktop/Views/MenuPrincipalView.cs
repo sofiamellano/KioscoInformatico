@@ -29,5 +29,11 @@ namespace KioscoInformaticoDesktop
             ProductosView productosView = new ProductosView();
             productosView.ShowDialog();
         }
+
+        private void iconMenuItemClientes_Click(object sender, EventArgs e)
+        {
+            ClientesView clientesView = new ClientesView();
+            clientesView.ShowDialog();
+        }
     }
 }
