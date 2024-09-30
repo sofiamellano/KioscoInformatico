@@ -27,7 +27,8 @@ namespace KioscoInformaticoDesktop.Views
 
         private async Task CargarGrilla()
         {
-            ListClientes.DataSource = clienteService.GetAllAsync();
+            var clientes = await clienteService.GetAllAsync(null);
+            ListClientes.DataSource = clientes;
         }
 
         private void iconButtonAgregar_Click(object sender, EventArgs e)
@@ -37,12 +38,6 @@ namespace KioscoInformaticoDesktop.Views
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtNombre.Text))
-            {
-                MessageBox.Show("El nombre del cliente es obligatorio", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
             if (clienteCurrent != null)
             {
                 clienteCurrent.Nombre = txtNombre.Text;
@@ -65,6 +60,7 @@ namespace KioscoInformaticoDesktop.Views
             txtNombre.Text = string.Empty;
             txtDireccion.Text = string.Empty;
             txtTelefonos.Text = string.Empty;
+            tabControl.SelectTab(tabPageLista);
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -83,12 +79,21 @@ namespace KioscoInformaticoDesktop.Views
 
         private async void iconButtonEliminar_Click(object sender, EventArgs e)
         {
+            clienteCurrent = (Cliente)ListClientes.Current;
+            if (clienteCurrent == null)
+            {
+                MessageBox.Show("Debe seleccionar un cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             var result = MessageBox.Show($"¿Está seguro que desea eliminar el cliente {clienteCurrent.Nombre}?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (result == DialogResult.Yes)
             {
                 clienteCurrent = (Cliente)ListClientes.Current;
-                await clienteService.DeleteAsync(clienteCurrent.Id);
-                await CargarGrilla();
+                if (clienteCurrent != null)
+                {
+                    await clienteService.DeleteAsync(clienteCurrent.Id);
+                    await CargarGrilla();
+                }
             }
             clienteCurrent = null;
         }
@@ -98,9 +103,10 @@ namespace KioscoInformaticoDesktop.Views
             FiltrarCliente();
         }
 
-        private void FiltrarCliente()
+        private async void FiltrarCliente()
         {
-            ListClientes.DataSource = clienteService.GetAllAsync(txtFiltro.Text);
+            var clientesFiltrados = await clienteService.GetAllAsync(txtFiltro.Text);
+            ListClientes.DataSource = clientesFiltrados;
         }
     }
 }

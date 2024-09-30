@@ -1,4 +1,5 @@
-﻿@page "/productos"
+﻿
+@page "/productos"
 @inject IGenericService<Producto> GenericService
 
 <h3>Productos</h3>
@@ -14,6 +15,9 @@ else
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
+                <th>Precio</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +26,13 @@ else
                 <tr>
                     <td>@producto.Id</td>
                     <td>@producto.Nombre</td>
+                    <td>@producto.Precio</td>
+                    <td>
+                        <a href="/editarproducto?IdProductoEditado=@producto.Id">Editar</a>
+                    </td>
+                    <td>
+                        <a href="/nuevoproducto">Nuevo Producto</a>
+                    </td>
                 </tr>
             }
         </tbody>
