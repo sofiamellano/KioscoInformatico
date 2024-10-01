@@ -67,7 +67,9 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            localidadCurrent = null;
+            txtNombre.Text = string.Empty;
+            tabControl.SelectTab(tabPageLista);
         }
 
         private void btnEditar_Click(object sender, EventArgs e)

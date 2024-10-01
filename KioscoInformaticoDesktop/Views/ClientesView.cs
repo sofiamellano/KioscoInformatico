@@ -16,13 +16,25 @@ namespace KioscoInformaticoDesktop.Views
     public partial class ClientesView : Form
     {
         IClienteService clienteService = new ClienteService();
+        ILocalidadService localidadService = new LocalidadService();
         BindingSource ListClientes = new BindingSource();
         Cliente clienteCurrent;
+
         public ClientesView()
         {
             InitializeComponent();
             dataGridClientesView.DataSource = ListClientes;
             CargarGrilla();
+            CargarCombo();
+        }
+
+        private async Task CargarCombo()
+        {
+            comboLocalidades.DataSource = await localidadService.GetAllAsync();
+            comboLocalidades.DisplayMember = "Nombre";
+            comboLocalidades.ValueMember = "Id";
+            comboLocalidades.SelectedIndex = -1;
+
         }
 
         private async Task CargarGrilla()
@@ -43,6 +55,7 @@ namespace KioscoInformaticoDesktop.Views
                 clienteCurrent.Nombre = txtNombre.Text;
                 clienteCurrent.Direccion = txtDireccion.Text;
                 clienteCurrent.Telefonos = txtTelefonos.Text;
+                clienteCurrent.LocalidadId = (int)comboLocalidades.SelectedValue;
                 await clienteService.UpdateAsync(clienteCurrent);
                 clienteCurrent = null;
             }
@@ -52,7 +65,8 @@ namespace KioscoInformaticoDesktop.Views
                 {
                     Nombre = txtNombre.Text,
                     Direccion = txtDireccion.Text,
-                    Telefonos = txtTelefonos.Text
+                    Telefonos = txtTelefonos.Text,
+                    LocalidadId = (int)comboLocalidades.SelectedValue
                 };
                 await clienteService.AddAsync(cliente);
             }
@@ -65,7 +79,12 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            clienteCurrent = null;
+            txtNombre.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtTelefonos.Text = string.Empty;
+            comboLocalidades.SelectedIndex = -1;
+            tabControl.SelectTab(tabPageLista);
         }
 
         private void iconButtonEditar_Click(object sender, EventArgs e)
@@ -74,6 +93,7 @@ namespace KioscoInformaticoDesktop.Views
             txtNombre.Text = clienteCurrent.Nombre;
             txtDireccion.Text = clienteCurrent.Direccion;
             txtTelefonos.Text = clienteCurrent.Telefonos;
+            comboLocalidades.SelectedValue = clienteCurrent.LocalidadId;
             tabControl.SelectTab(tabPageAgregarEditar);
         }
 

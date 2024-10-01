@@ -41,6 +41,9 @@
             label3 = new Label();
             dataGridClientesView = new DataGridView();
             tabPageAgregarEditar = new TabPage();
+            label7 = new Label();
+            comboLocalidades = new ComboBox();
+            label6 = new Label();
             txtTelefonos = new TextBox();
             label5 = new Label();
             txtDireccion = new TextBox();
@@ -49,6 +52,7 @@
             btnGuardar = new FontAwesome.Sharp.IconButton();
             txtNombre = new TextBox();
             label2 = new Label();
+            dateTimePicker1 = new DateTimePicker();
             panel1.SuspendLayout();
             tabControl.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -96,7 +100,6 @@
             tabPageLista.Controls.Add(iconButtonBuscar);
             tabPageLista.Controls.Add(txtFiltro);
             tabPageLista.Controls.Add(label3);
-          
             tabPageLista.Controls.Add(dataGridClientesView);
             tabPageLista.Location = new Point(4, 24);
             tabPageLista.Name = "tabPageLista";
@@ -213,17 +216,6 @@
             label3.TabIndex = 4;
             label3.Text = "Busar Producto:";
             // 
-            // btnEliminar
-            // 
-            // 
-            // btnEditar
-            // 
-            
-            // 
-            // btnAgregar
-            // 
-           
-            // 
             // dataGridClientesView
             // 
             dataGridClientesView.AllowUserToAddRows = false;
@@ -239,6 +231,10 @@
             // 
             // tabPageAgregarEditar
             // 
+            tabPageAgregarEditar.Controls.Add(dateTimePicker1);
+            tabPageAgregarEditar.Controls.Add(label7);
+            tabPageAgregarEditar.Controls.Add(comboLocalidades);
+            tabPageAgregarEditar.Controls.Add(label6);
             tabPageAgregarEditar.Controls.Add(txtTelefonos);
             tabPageAgregarEditar.Controls.Add(label5);
             tabPageAgregarEditar.Controls.Add(txtDireccion);
@@ -255,17 +251,43 @@
             tabPageAgregarEditar.Text = "Agregar/Editar";
             tabPageAgregarEditar.UseVisualStyleBackColor = true;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(215, 182);
+            label7.Name = "label7";
+            label7.Size = new Size(122, 15);
+            label7.TabIndex = 18;
+            label7.Text = "Fecha de Nacimiento:";
+            // 
+            // comboLocalidades
+            // 
+            comboLocalidades.FormattingEnabled = true;
+            comboLocalidades.Location = new Point(386, 222);
+            comboLocalidades.Name = "comboLocalidades";
+            comboLocalidades.Size = new Size(197, 23);
+            comboLocalidades.TabIndex = 3;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(278, 225);
+            label6.Name = "label6";
+            label6.Size = new Size(61, 15);
+            label6.TabIndex = 16;
+            label6.Text = "Localidad:";
+            // 
             // txtTelefonos
             // 
-            txtTelefonos.Location = new Point(386, 150);
+            txtTelefonos.Location = new Point(386, 133);
             txtTelefonos.Name = "txtTelefonos";
             txtTelefonos.Size = new Size(197, 23);
-            txtTelefonos.TabIndex = 15;
+            txtTelefonos.TabIndex = 2;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(277, 153);
+            label5.Location = new Point(278, 141);
             label5.Name = "label5";
             label5.Size = new Size(60, 15);
             label5.TabIndex = 14;
@@ -273,15 +295,15 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(386, 90);
+            txtDireccion.Location = new Point(383, 81);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(197, 23);
-            txtDireccion.TabIndex = 13;
+            txtDireccion.TabIndex = 1;
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(277, 93);
+            label4.Location = new Point(279, 89);
             label4.Name = "label4";
             label4.Size = new Size(60, 15);
             label4.TabIndex = 12;
@@ -296,7 +318,7 @@
             btnCancelar.Location = new Point(514, 275);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(100, 60);
-            btnCancelar.TabIndex = 11;
+            btnCancelar.TabIndex = 5;
             btnCancelar.Text = "&Cancelar";
             btnCancelar.TextAlign = ContentAlignment.MiddleRight;
             btnCancelar.UseVisualStyleBackColor = true;
@@ -311,7 +333,7 @@
             btnGuardar.Location = new Point(277, 275);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(100, 60);
-            btnGuardar.TabIndex = 10;
+            btnGuardar.TabIndex = 4;
             btnGuardar.Text = "&Guardar";
             btnGuardar.TextAlign = ContentAlignment.MiddleRight;
             btnGuardar.UseVisualStyleBackColor = true;
@@ -322,7 +344,7 @@
             txtNombre.Location = new Point(386, 32);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(197, 23);
-            txtNombre.TabIndex = 9;
+            txtNombre.TabIndex = 0;
             // 
             // label2
             // 
@@ -332,6 +354,13 @@
             label2.Size = new Size(54, 15);
             label2.TabIndex = 8;
             label2.Text = "Nombre:";
+            // 
+            // dateTimePicker1
+            // 
+            dateTimePicker1.Location = new Point(383, 176);
+            dateTimePicker1.Name = "dateTimePicker1";
+            dateTimePicker1.Size = new Size(200, 23);
+            dateTimePicker1.TabIndex = 19;
             // 
             // ClientesView
             // 
@@ -377,5 +406,9 @@
         private FontAwesome.Sharp.IconButton iconButtonAgregar;
         private FontAwesome.Sharp.IconButton iconButtonEditar;
         private FontAwesome.Sharp.IconButton iconButtonEliminar;
+        private Label label6;
+        private ComboBox comboLocalidades;
+        private Label label7;
+        private DateTimePicker dateTimePicker1;
     }
 }

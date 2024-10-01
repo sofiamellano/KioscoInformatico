@@ -27,9 +27,9 @@ namespace KioscoInformaticoBackend.Controllers
         {
             if (Filtro != null)
             {
-                return await _context.Clientes.Where(c => c.Nombre.ToUpper().Contains(Filtro.ToUpper())).ToListAsync();
+                return await _context.Clientes.Include(c => c.Localidad).Where(c => c.Nombre.ToUpper().Contains(Filtro.ToUpper())).ToListAsync();
             }
-            return await _context.Clientes.ToListAsync();
+            return await _context.Clientes.Include(c => c.Localidad).ToListAsync();
         }
 
         // GET: api/Clientes/5

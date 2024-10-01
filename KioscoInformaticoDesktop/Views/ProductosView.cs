@@ -80,7 +80,10 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+            productoCurrent = null;
+            txtNombre.Text = string.Empty;
+            numericPrecio.Value = 0;
+            tabControl.SelectTab(tabPageLista);
         }
 
         private async void iconButtonEliminar_Click(object sender, EventArgs e)
