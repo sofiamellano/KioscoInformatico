@@ -39,9 +39,6 @@
             iconButtonBuscar = new FontAwesome.Sharp.IconButton();
             txtFiltro = new TextBox();
             label3 = new Label();
-            btnEliminar = new FontAwesome.Sharp.IconButton();
-            btnEditar = new FontAwesome.Sharp.IconButton();
-            btnAgregar = new FontAwesome.Sharp.IconButton();
             dataGridClientesView = new DataGridView();
             tabPageAgregarEditar = new TabPage();
             txtTelefonos = new TextBox();
@@ -99,9 +96,7 @@
             tabPageLista.Controls.Add(iconButtonBuscar);
             tabPageLista.Controls.Add(txtFiltro);
             tabPageLista.Controls.Add(label3);
-            tabPageLista.Controls.Add(btnEliminar);
-            tabPageLista.Controls.Add(btnEditar);
-            tabPageLista.Controls.Add(btnAgregar);
+          
             tabPageLista.Controls.Add(dataGridClientesView);
             tabPageLista.Location = new Point(4, 24);
             tabPageLista.Name = "tabPageLista";
@@ -220,56 +215,14 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEliminar.BackColor = Color.OrangeRed;
-            btnEliminar.ForeColor = Color.White;
-            btnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
-            btnEliminar.IconColor = Color.White;
-            btnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEliminar.IconSize = 44;
-            btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminar.Location = new Point(1454, 223);
-            btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(108, 54);
-            btnEliminar.TabIndex = 3;
-            btnEliminar.Text = "Eli&minar";
-            btnEliminar.TextAlign = ContentAlignment.MiddleRight;
-            btnEliminar.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
-            btnEditar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnEditar.BackColor = Color.OrangeRed;
-            btnEditar.ForeColor = Color.White;
-            btnEditar.IconChar = FontAwesome.Sharp.IconChar.Pencil;
-            btnEditar.IconColor = Color.White;
-            btnEditar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnEditar.IconSize = 45;
-            btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditar.Location = new Point(1454, 146);
-            btnEditar.Name = "btnEditar";
-            btnEditar.Size = new Size(108, 54);
-            btnEditar.TabIndex = 2;
-            btnEditar.Text = "&Editar";
-            btnEditar.TextAlign = ContentAlignment.MiddleRight;
-            btnEditar.UseVisualStyleBackColor = false;
+            
             // 
             // btnAgregar
             // 
-            btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnAgregar.BackColor = Color.OrangeRed;
-            btnAgregar.ForeColor = Color.White;
-            btnAgregar.IconChar = FontAwesome.Sharp.IconChar.FileCirclePlus;
-            btnAgregar.IconColor = Color.White;
-            btnAgregar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregar.Location = new Point(1454, 76);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(85, 54);
-            btnAgregar.TabIndex = 1;
-            btnAgregar.Text = "&Agregar";
-            btnAgregar.TextAlign = ContentAlignment.MiddleRight;
-            btnAgregar.UseVisualStyleBackColor = false;
+           
             // 
             // dataGridClientesView
             // 
@@ -410,9 +363,6 @@
         private FontAwesome.Sharp.IconButton iconButtonBuscar;
         private TextBox txtFiltro;
         private Label label3;
-        private FontAwesome.Sharp.IconButton btnEliminar;
-        private FontAwesome.Sharp.IconButton btnEditar;
-        private FontAwesome.Sharp.IconButton btnAgregar;
         private DataGridView dataGridClientesView;
         private TabPage tabPageAgregarEditar;
         private FontAwesome.Sharp.IconButton btnCancelar;
