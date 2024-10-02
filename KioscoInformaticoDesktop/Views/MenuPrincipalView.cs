@@ -35,5 +35,7 @@ namespace KioscoInformaticoDesktop
             ClientesView clientesView = new ClientesView();
             clientesView.ShowDialog();
         }
+
+   
     }
 }

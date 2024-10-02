@@ -1,5 +1,6 @@
 ﻿@page "/localidades"
 @inject IGenericService<Localidad> LocalidadService
+@inject NavigationManager NavigationManager
 
 <h3>Localidades</h3>
 
@@ -9,13 +10,15 @@
 }
 else
 {
+    <button class="btn btn-primary" @onclick="AgregarLocalidad">Agregar Nueva Localidad</button>
+
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Nombre</th>
                 <th></th>
-                <th></th>
+                @* <th></th> *@
             </tr>
         </thead>
         <tbody>
@@ -26,9 +29,6 @@ else
                     <td>@localidad.Nombre</td>
                     <td>
                         <a href="/editarlocalidad?IdLocalidadEditada=@localidad.Id">Editar</a> 
-                    </td>
-                    <td>
-                        <a href="/nuevalocalidad">Nueva Localidad</a>
                     </td>
                 </tr>
             }
@@ -42,5 +42,10 @@ else
     protected override async Task OnInitializedAsync()
     {
         localidades = await LocalidadService.GetAllAsync();
+    }
+    private void AgregarLocalidad()
+    {
+        // Redirigir a la página para agregar una nueva localidad
+        NavigationManager.NavigateTo("/nuevalocalidad");
     }
 }
