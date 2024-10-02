@@ -2,8 +2,7 @@
 @inject IGenericService<Producto> ProductoService
 @inject NavigationManager NavigationManager
 
-<h3>Editar Producto</h3>
-
+<HeaderPage TitlePage="Editando Producto" />
 @if (producto == null)
 {
     <p><em>Obteniendo el producto a editar...</em></p>

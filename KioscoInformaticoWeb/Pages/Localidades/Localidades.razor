@@ -1,8 +1,9 @@
 ﻿@page "/localidades"
 @inject IGenericService<Localidad> LocalidadService
 @inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
-<h3>Localidades</h3>
+<HeaderPage TitlePage="Localidades"/>
 
 @if (localidades == null)
 {
@@ -18,7 +19,7 @@ else
                 <th>Id</th>
                 <th>Nombre</th>
                 <th></th>
-                @* <th></th> *@
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,9 @@ else
                     <td>@localidad.Nombre</td>
                     <td>
                         <a href="/editarlocalidad?IdLocalidadEditada=@localidad.Id">Editar</a> 
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(localidad))">Eliminar</button>
                     </td>
                 </tr>
             }
@@ -47,5 +51,25 @@ else
     {
         // Redirigir a la página para agregar una nueva localidad
         NavigationManager.NavigateTo("/nuevalocalidad");
+    }
+
+    private async Task Eliminar(Localidad localidad)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Localidad",
+                Text = $"¿Está seguro que desea borrar la localidad {localidad.Nombre}?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarla",
+                CancelButtonText = "No, espera"
+            });
+
+        if (respuesta.IsConfirmed)
+        {
+            await LocalidadService.DeleteAsync(localidad.Id);
+            localidades = await LocalidadService.GetAllAsync();
+            StateHasChanged();
+        }
     }
 }
