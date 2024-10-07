@@ -1,0 +1,68 @@
+﻿@page "/nuevocliente"
+@inject IClienteService ClienteService
+@inject NavigationManager NavigationManager
+
+<HeaderPage TitlePage="Nuevo Cliente" />
+@if (cliente == null)
+{
+    <p><em>Cargando...</em></p>
+}
+else
+{
+    <EditForm Model="cliente" OnValidSubmit="AgregarCliente">
+        <DataAnnotationsValidator />
+
+        <div class="form-group mb-2">
+            <label for="Nombre">Nombre:</label>
+            <InputText id="Nombre" class="form-control" @bind-Value="cliente.Nombre" />
+            <ValidationMessage For="@(() => cliente.Nombre)" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="Direccion">Direccion:</label>
+            <InputNumber id="Precio" class="form-control" @bind-Value="cliente.Direccion" />
+            <ValidationMessage For="@(() => cliente.Direccion)" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="Telefonos">Telefonos:</label>
+            <InputNumber id="Telefonos" class="form-control" @bind-Value="cliente.Telefonos" />
+            <ValidationMessage For="@(() => cliente.Telefonos)" />
+        </div>
+
+        <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+    </EditForm>
+}
+
+@code {
+    [SupplyParameterFromQuery]
+    [Parameter]
+    public int IdClienteEditado { get; set; }
+
+    private Cliente cliente = new Cliente();
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (IdClienteEditado != 0)
+        {
+            cliente = await ClienteService.GetByIdAsync(IdClienteEditado) ?? new Cliente();
+        }
+    }
+
+    private async Task AgregarCliente()
+    {
+        if (cliente != null)
+        {
+            if (IdClienteEditado == 0)
+            {
+                await ClienteService.AddAsync(cliente);
+            }
+            else
+            {
+                await ClienteService.UpdateAsync(cliente);
+            }
+
+            NavigationManager.NavigateTo("/clientes");
+        }
+    }
+}

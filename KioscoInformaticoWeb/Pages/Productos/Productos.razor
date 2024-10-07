@@ -2,6 +2,7 @@
 @page "/productos"
 @inject IGenericService<Producto> GenericService
 @inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
 <HeaderPage TitlePage="Productos"/>
 
@@ -19,6 +20,7 @@ else
                 <th>Nombre</th>
                 <th>Precio</th>
                 <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
@@ -30,6 +32,9 @@ else
                     <td>@producto.Precio.ToString("N2")</td>
                     <td>
                         <a href="/editarproducto?IdProductoEditado=@producto.Id">Editar</a>
+                    </td>
+                    <td>
+                        <button title="Eliminar" class="btn btn-danger" @onclick="@(()=>Eliminar(producto))">Eliminar</button>
                     </td>
                 </tr>
             }
@@ -47,5 +52,24 @@ else
     {
         // Redirigir a la página para agregar una nueva localidad
         NavigationManager.NavigateTo("/nuevoproducto");
+    }
+    private async Task Eliminar(Producto producto)
+    {
+        SweetAlertResult respuesta = await SweetAlert.FireAsync(new SweetAlertOptions
+            {
+                Title = "Borrando Producto",
+                Text = $"¿Está seguro que desea borrar este producto {producto.Nombre}?",
+                Icon = SweetAlertIcon.Warning,
+                ShowCancelButton = true,
+                ConfirmButtonText = "Sí, quiero borrarlo",
+                CancelButtonText = "No, esperar"
+            });
+
+        if (respuesta.IsConfirmed)
+        {
+            await GenericService.DeleteAsync(producto.Id);
+            productos = await GenericService.GetAllAsync();
+            StateHasChanged();
+        }
     }
 }
