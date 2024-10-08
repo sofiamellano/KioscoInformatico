@@ -86,9 +86,9 @@ public partial class KioscoContext : DbContext
                 .HasColumnName("ProveedorID");
             entity.Property(e => e.Total).HasColumnType("int(11)");
 
-            entity.HasOne(d => d.Proveedor).WithMany(p => p.Compras)
-                .HasForeignKey(d => d.ProveedorID)
-                .HasConstraintName("FK_Compras_Proveedores_ProveedorID");
+            //entity.HasOne(d => d.Proveedor).WithMany(p => p.Compras)
+            //    .HasForeignKey(d => d.ProveedorID)
+            //    .HasConstraintName("FK_Compras_Proveedores_ProveedorID");
         });
 
         modelBuilder.Entity<DetalleCompra>(entity =>
@@ -265,7 +265,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 1",
             Telefonos = "111111111",
             Cbu = "0000003100010000000001",
-            CondicionIva = CondicionIvaEnum.ResponsableInscripto,
+            CondicionIva = CondicionIvaEnum.Responsable_Inscripto,
             LocalidadId = 1
         },
         new Proveedor
@@ -285,7 +285,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 3",
             Telefonos = "333333333",
             Cbu = "0000003100010000000003",
-            CondicionIva = CondicionIvaEnum.ConsumidorFinal,
+            CondicionIva = CondicionIvaEnum.Consumidor_Final,
             LocalidadId = 3
         },
         new Proveedor
@@ -305,7 +305,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 5",
             Telefonos = "555555555",
             Cbu = "0000003100010000000005",
-            CondicionIva = CondicionIvaEnum.NoResponsable,
+            CondicionIva = CondicionIvaEnum.No_Responsable,
             LocalidadId = 2
         },
         new Proveedor
@@ -315,7 +315,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 6",
             Telefonos = "666666666",
             Cbu = "0000003100010000000006",
-            CondicionIva = CondicionIvaEnum.ResponsableNoInscripto,
+            CondicionIva = CondicionIvaEnum.Responsable_NoInscripto,
             LocalidadId = 1
         },
         new Proveedor
@@ -325,7 +325,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 7",
             Telefonos = "777777777",
             Cbu = "0000003100010000000007",
-            CondicionIva = CondicionIvaEnum.ResponsableInscripto,
+            CondicionIva = CondicionIvaEnum.Responsable_Inscripto,
             LocalidadId = 2
         },
         new Proveedor
@@ -335,7 +335,7 @@ public partial class KioscoContext : DbContext
             Direccion = "Calle 8",
             Telefonos = "888888888",
             Cbu = "0000003100010000000008",
-            CondicionIva = CondicionIvaEnum.SujetoNoCategorizado,
+            CondicionIva = CondicionIvaEnum.Sujeto_No_Categorizado,
             LocalidadId = 1
         },
         new Proveedor

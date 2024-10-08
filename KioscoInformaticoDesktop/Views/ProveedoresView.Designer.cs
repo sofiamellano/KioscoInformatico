@@ -40,6 +40,7 @@
             btnBuscar = new FontAwesome.Sharp.IconButton();
             dataGridProveedoresView = new DataGridView();
             tabPageEditarAgregar = new TabPage();
+            label8 = new Label();
             comboLocalidades = new ComboBox();
             label6 = new Label();
             txtCbu = new TextBox();
@@ -52,8 +53,7 @@
             label2 = new Label();
             btnCancelar = new FontAwesome.Sharp.IconButton();
             btnGuardar = new FontAwesome.Sharp.IconButton();
-            txtCondicionIVA = new TextBox();
-            label8 = new Label();
+            comboCondicionIVA = new ComboBox();
             panel1.SuspendLayout();
             tabControl1.SuspendLayout();
             tabPageLista.SuspendLayout();
@@ -209,7 +209,7 @@
             // 
             // tabPageEditarAgregar
             // 
-            tabPageEditarAgregar.Controls.Add(txtCondicionIVA);
+            tabPageEditarAgregar.Controls.Add(comboCondicionIVA);
             tabPageEditarAgregar.Controls.Add(label8);
             tabPageEditarAgregar.Controls.Add(comboLocalidades);
             tabPageEditarAgregar.Controls.Add(label6);
@@ -230,6 +230,15 @@
             tabPageEditarAgregar.TabIndex = 1;
             tabPageEditarAgregar.Text = "Editar/Agregar";
             tabPageEditarAgregar.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(259, 234);
+            label8.Name = "label8";
+            label8.Size = new Size(85, 15);
+            label8.TabIndex = 25;
+            label8.Text = "Condicion IVA:";
             // 
             // comboLocalidades
             // 
@@ -343,21 +352,14 @@
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
             // 
-            // txtCondicionIVA
+            // comboCondicionIVA
             // 
-            txtCondicionIVA.Location = new Point(388, 231);
-            txtCondicionIVA.Name = "txtCondicionIVA";
-            txtCondicionIVA.Size = new Size(200, 23);
-            txtCondicionIVA.TabIndex = 24;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(259, 234);
-            label8.Name = "label8";
-            label8.Size = new Size(85, 15);
-            label8.TabIndex = 25;
-            label8.Text = "Condicion IVA:";
+            comboCondicionIVA.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboCondicionIVA.FormattingEnabled = true;
+            comboCondicionIVA.Location = new Point(388, 231);
+            comboCondicionIVA.Name = "comboCondicionIVA";
+            comboCondicionIVA.Size = new Size(200, 23);
+            comboCondicionIVA.TabIndex = 26;
             // 
             // ProveedoresView
             // 
@@ -405,7 +407,7 @@
         private FontAwesome.Sharp.IconButton btnBuscar;
         private TextBox txtFiltro;
         private Label label7;
-        private TextBox txtCondicionIVA;
         private Label label8;
+        private ComboBox comboCondicionIVA;
     }
 }
