@@ -18,6 +18,7 @@ public partial class Cliente
     public int? LocalidadId { get; set; }
 
     public virtual Localidad? Localidad { get; set; }
+    public bool Eliminado { get; set; } = false;
 
   //  public virtual ICollection<Venta> Venta { get; set; } = new List<Venta>();
 }

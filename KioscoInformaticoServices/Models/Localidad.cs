@@ -15,4 +15,5 @@ public partial class Localidad
 
   //  public virtual ICollection<Proveedor> Proveedores { get; set; } = new List<Proveedor>();
   public override string ToString() => Nombre;
+    public bool Eliminado { get; set; } = false;
 }
