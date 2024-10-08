@@ -33,13 +33,14 @@ namespace KioscoInformaticoDesktop.Views
             comboLocalidades.DisplayMember = "Nombre";
             comboLocalidades.ValueMember = "Id";
             comboLocalidades.SelectedIndex = -1;
+
         }
 
         private async Task CargarGrilla()
         {
             var proveedores = await proveedorService.GetAllAsync(null);
             ListProveedores.DataSource = proveedores;
-            dataGridProveedoresView.Columns[5].Visible = false;
+            dataGridProveedoresView.Columns[6].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -112,7 +113,7 @@ namespace KioscoInformaticoDesktop.Views
             if (result == DialogResult.Yes)
             {
                 proveedorCurrent = (Proveedor)ListProveedores.Current;
-                if (proveedorCurrent == null)
+                if (proveedorCurrent != null)
                 {
                     await proveedorService.DeleteAsync(proveedorCurrent.Id);
                     await CargarGrilla();
