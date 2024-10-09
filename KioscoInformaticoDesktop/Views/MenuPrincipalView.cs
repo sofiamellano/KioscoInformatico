@@ -1,4 +1,5 @@
 using KioscoInformaticoDesktop.Views;
+using KioscoInformaticoDesktop.ViewReports;
 
 namespace KioscoInformaticoDesktop
 {
@@ -40,6 +41,12 @@ namespace KioscoInformaticoDesktop
         {
             ProveedoresView proveedoresView = new ProveedoresView();
             proveedoresView.ShowDialog();
+        }
+
+        private void iconMenuItemLocalidades_Click(object sender, EventArgs e)
+        {
+            LocalidadesViewReport localidadesViewReport = new LocalidadesViewReport();
+            localidadesViewReport.ShowDialog();
         }
     }
 }

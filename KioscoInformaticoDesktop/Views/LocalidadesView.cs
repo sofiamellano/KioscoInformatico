@@ -1,5 +1,4 @@
-﻿using KioscoInformaticoDesktop.DataContext;
-using KioscoInformaticoServices.Interfaces;
+﻿using KioscoInformaticoServices.Interfaces;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
 using System;
@@ -30,6 +29,7 @@ namespace KioscoInformaticoDesktop.Views
         private async Task CargarGrilla()
         {
             ListLocalidades.DataSource = await localidadService.GetAllAsync();
+            dataGridLocalidadesView.Columns[3].Visible = false;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

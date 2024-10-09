@@ -32,6 +32,7 @@ namespace KioscoInformaticoDesktop.Views
         {
             ListProductos.DataSource = await productoService.GetAllAsync();
             ListaFiltro = ListProductos.DataSource as List<Producto>;
+            dataGridProductosView.Columns[4].Visible = false;
         }
 
         private void iconButtonAgregar_Click(object sender, EventArgs e)

@@ -42,6 +42,7 @@ namespace KioscoInformaticoDesktop.Views
             var clientes = await clienteService.GetAllAsync(null);
             ListClientes.DataSource = clientes;
             dataGridClientesView.Columns[5].Visible = false;
+            dataGridClientesView.Columns[7].Visible = false;
         }
 
         private void iconButtonAgregar_Click(object sender, EventArgs e)

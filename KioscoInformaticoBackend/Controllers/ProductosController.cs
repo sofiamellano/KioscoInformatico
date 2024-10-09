@@ -42,6 +42,13 @@ namespace KioscoInformaticoBackend.Controllers
             return producto;
         }
 
+        // GET: Retorna productos en ofertas
+        [HttpGet("GetInOffer")]
+        public async Task<ActionResult<IEnumerable<Producto>>> GetProductosOferta()
+        {
+            return await _context.Productos.Where(p => p.Oferta).ToListAsync();
+        }
+
         // PUT: api/Productos/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

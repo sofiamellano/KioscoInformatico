@@ -104,7 +104,6 @@
         </TablixRowHierarchy>
         <DataSetName>DSLocalidades</DataSetName>
         <Top>0.17639cm</Top>
-        <Left>0cm</Left>
         <Height>1.02333cm</Height>
         <Width>16.51cm</Width>
         <Style>
@@ -120,13 +119,12 @@
   <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>3.04271cm</Height>
+      <Height>2.30188cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line1">
-          <Top>1.89328cm</Top>
-          <Left>0cm</Left>
+          <Top>1.235cm</Top>
           <Height>0cm</Height>
           <Width>16.51cm</Width>
           <Style>
@@ -154,8 +152,7 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
-          <Top>0.62301cm</Top>
-          <Left>2.9337cm</Left>
+          <Left>2.35162cm</Left>
           <Height>1.12917cm</Height>
           <Width>10.62271cm</Width>
           <ZIndex>1</ZIndex>
@@ -170,7 +167,7 @@
           </Style>
         </Textbox>
         <Line Name="Line2">
-          <Top>2.99861cm</Top>
+          <Top>2.23132cm</Top>
           <Height>0cm</Height>
           <Width>16.51cm</Width>
           <ZIndex>2</ZIndex>
@@ -195,8 +192,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>2.06967cm</Top>
-          <Left>0.65828cm</Left>
+          <Top>1.34084cm</Top>
+          <Left>0.28787cm</Left>
           <Height>0.56734cm</Height>
           <Width>1.33583cm</Width>
           <ZIndex>3</ZIndex>
@@ -225,8 +222,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>2.06967cm</Top>
-          <Left>7.24313cm</Left>
+          <Top>1.34084cm</Top>
+          <Left>6.66433cm</Left>
           <Height>0.56734cm</Height>
           <Width>1.33583cm</Width>
           <ZIndex>4</ZIndex>
@@ -248,13 +245,12 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.54cm</Height>
+      <Height>1.52287cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
         <Line Name="Line3">
           <Top>0.42016cm</Top>
-          <Left>0cm</Left>
           <Height>0cm</Height>
           <Width>16.51cm</Width>
           <Style>
@@ -282,8 +278,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>1.6637cm</Top>
-          <Left>12.40578cm</Left>
+          <Top>0.7112cm</Top>
+          <Left>12.68708cm</Left>
           <Height>0.6cm</Height>
           <Width>3.82292cm</Width>
           <ZIndex>1</ZIndex>

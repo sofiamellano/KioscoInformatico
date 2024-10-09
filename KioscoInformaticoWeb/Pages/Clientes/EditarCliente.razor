@@ -15,19 +15,16 @@ else
         <div class="form-group mb-2">
             <label for="Nombre">Nombre</label>
             <InputText id="Nombre" class="form-control" @bind-Value="cliente.Nombre" />
-            <ValidationMessage For="@(() => cliente.Nombre)" />
         </div>
 
         <div class="form-group mb-2">
             <label for="Direccion">Direccion:</label>
-            <InputNumber id="Precio" class="form-control" @bind-Value="cliente.Direccion" />
-            <ValidationMessage For="@(() => cliente.Direccion)" />
+            <InputText id="Direccion" class="form-control" @bind-Value="cliente.Direccion" />
         </div>
 
         <div class="form-group mb-2">
             <label for="Telefonos">Telefonos:</label>
-            <InputNumber id="Telefonos" class="form-control" @bind-Value="cliente.Telefonos" />
-            <ValidationMessage For="@(() => cliente.Telefonos)" />
+            <InputText id="Telefonos" class="form-control" @bind-Value="cliente.Telefonos" />
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Guardar</button>
