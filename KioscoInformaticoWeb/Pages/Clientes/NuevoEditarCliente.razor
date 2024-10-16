@@ -1,4 +1,4 @@
-﻿@page "/nuevocliente"
+﻿@page "/nuevoeditarcliente"
 @inject IClienteService ClienteService
 @inject ILocalidadService LocalidadService
 @inject NavigationManager NavigationManager
@@ -49,7 +49,7 @@ else
     [Parameter]
     public int IdClienteEditado { get; set; }
 
-    private Cliente cliente = new Cliente();
+    private Cliente cliente;
     List<Localidad> localidades = new List<Localidad>();
 
     protected override async Task OnInitializedAsync()
@@ -67,11 +67,11 @@ else
 
     private async Task Guardar()
     {
-        if (cliente.LocalidadId == null)
-        {
-            await SweetAlert.FireAsync("Error", "Debe seleccionar una localidad", SweetAlertIcon.Error);
-                return;
-        }
+        // if (cliente.LocalidadId == null)
+        // {
+        //     await SweetAlert.FireAsync("Error", "Debe seleccionar una localidad", SweetAlertIcon.Error);
+        //         return;
+        // }
 
         if (cliente != null)
         {
