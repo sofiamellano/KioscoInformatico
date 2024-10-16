@@ -1,15 +1,17 @@
 ﻿@page "/nuevocliente"
 @inject IClienteService ClienteService
+@inject ILocalidadService LocalidadService
 @inject NavigationManager NavigationManager
+@inject SweetAlertService SweetAlert
 
 <HeaderPage TitlePage="Nuevo Cliente" />
-@if (cliente == null)
+@if (cliente == null || localidades == null)
 {
     <p><em>Cargando...</em></p>
 }
 else
 {
-    <EditForm Model="cliente" OnValidSubmit="AgregarCliente">
+    <EditForm Model="cliente" OnValidSubmit="Guardar">
         <DataAnnotationsValidator />
 
         <div class="form-group mb-2">
@@ -27,7 +29,18 @@ else
             <InputText id="Telefonos" class="form-control" @bind-Value="cliente.Telefonos" />
         </div>
 
+        <div class="form-group mb-2">
+                        <label for="IdLocalidad">Localidad:</label>
+            <InputSelect id="IdLocalidad" class="form-control" @bind-Value="cliente.LocalidadId">
+                <option value="">Seleccione una Localidad</option>
+                @foreach (var localidad in localidades)
+                {
+                    <option value="@localidad.Id">@localidad.Nombre</option>
+                }
+            </InputSelect>
+        </div>
         <button type="submit" class="btn btn-primary mb-2">Guardar</button>
+        <ValidationSummary />
     </EditForm>
 }
 
@@ -37,6 +50,7 @@ else
     public int IdClienteEditado { get; set; }
 
     private Cliente cliente = new Cliente();
+    List<Localidad> localidades = new List<Localidad>();
 
     protected override async Task OnInitializedAsync()
     {
@@ -48,10 +62,17 @@ else
         {
              cliente = new Cliente();
         }
+        localidades = await LocalidadService.GetAllAsync();
     }
 
-    private async Task AgregarCliente()
+    private async Task Guardar()
     {
+        if (cliente.LocalidadId == null)
+        {
+            await SweetAlert.FireAsync("Error", "Debe seleccionar una localidad", SweetAlertIcon.Error);
+                return;
+        }
+
         if (cliente != null)
         {
             if (IdClienteEditado == 0)
