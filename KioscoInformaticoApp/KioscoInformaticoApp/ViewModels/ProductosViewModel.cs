@@ -1,4 +1,5 @@
-﻿using KioscoInformaticoApp.Utils;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using KioscoInformaticoApp.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
+using CommunityToolkit.Mvvm.Messaging;
 
 namespace KioscoInformaticoApp.ViewModels
 {
@@ -22,18 +24,7 @@ namespace KioscoInformaticoApp.ViewModels
             {
                 filterProducts = value;
                 OnPropertyChanged();
-                FiltarProductos();
-            }
-        }
- 
-        private ObservableCollection<Producto> productos;
-        public ObservableCollection<Producto> Productos
-        {
-            get { return productos; }
-            set
-            {
-                productos = value;
-                OnPropertyChanged();
+                _ = FiltarProductos();
             }
         }
 
@@ -50,27 +41,34 @@ namespace KioscoInformaticoApp.ViewModels
             }
         }
 
-        private List<Producto>? ProductListToFilter;
-
-        private bool activityStart;
-        public bool ActivityStart
+        private ObservableCollection<Producto> productos;
+        public ObservableCollection<Producto> Productos
         {
-            get { return activityStart; }
+            get { return productos; }
             set
             {
-                activityStart = value;
+                productos = value;
                 OnPropertyChanged();
             }
         }
 
+        private List<Producto>? ProductListToFilter;
+
         public Command ObtenerProductosCommand { get; set; }
         public Command FiltrarProductosCommand { get; set; }
+        public Command AgregarProductoCommand { get; set; }
 
         public ProductosViewModel()
         {
             ObtenerProductosCommand = new Command(async () => await ObtenerProductos());
             FiltrarProductosCommand = new Command(async () =>  await FiltarProductos());
             ObtenerProductos();
+            AgregarProductoCommand = new Command(async () => await AgregarProducto());
+        }
+
+        private async Task AgregarProducto()
+        {
+            WeakReferenceMessenger.Default.Send(new Message("AgregarProducto"));
         }
 
         private async Task FiltarProductos()
@@ -79,13 +77,13 @@ namespace KioscoInformaticoApp.ViewModels
             Productos = new ObservableCollection<Producto>(prductosFiltrados);
         }
 
-        private async Task ObtenerProductos()
+        public async Task ObtenerProductos()
         {
             FilterProducts = string.Empty;
-            ActivityStart = true;
+            IsRefreshing = true;
             ProductListToFilter = await productoService.GetAllAsync();
             Productos = new ObservableCollection<Producto>(ProductListToFilter);
-            ActivityStart = false;
+            IsRefreshing = false;
         }
 
     }

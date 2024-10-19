@@ -10,7 +10,7 @@ namespace KioscoInformaticoApp
 
            // MainPage = new AppShell();
            //MainPage = new ProductosView();
-           MainPage = new ProductosEnOferta();
+           MainPage = new NavigationPage(new IniciarSesionView());
         }
     }
 }
