@@ -1,4 +1,4 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿    using CommunityToolkit.Mvvm.ComponentModel;
 using KioscoInformaticoApp.Utils;
 using System;
 using System.Collections.Generic;

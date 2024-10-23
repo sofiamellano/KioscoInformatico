@@ -15,7 +15,8 @@ public partial class Producto
     public decimal Precio { get; set; }
     public bool Eliminado { get; set; } = false;
     public bool Oferta { get; set; } = false;
-  //  public virtual ICollection<DetalleCompra> DetallesCompras { get; set; } = new List<DetalleCompra>();
+    public override string ToString() => Nombre;
+    //  public virtual ICollection<DetalleCompra> DetallesCompras { get; set; } = new List<DetalleCompra>();
 
-   // public virtual ICollection<DetalleVenta> DetallesVenta { get; set; } = new List<DetalleVenta>();
+    // public virtual ICollection<DetalleVenta> DetallesVenta { get; set; } = new List<DetalleVenta>();
 }
