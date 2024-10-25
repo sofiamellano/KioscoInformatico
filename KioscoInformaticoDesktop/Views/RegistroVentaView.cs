@@ -1,4 +1,5 @@
 ﻿using KioscoInformaticoDesktop.ExtensionMethods;
+using KioscoInformaticoDesktop.ViewReports;
 using KioscoInformaticoServices.Enums;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
@@ -113,17 +114,21 @@ namespace KioscoInformaticoDesktop.GenerateCompraView
         private async void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
             // cargamos los datos de la venta
-            venta.ClienteId = (int)comboBoxCliente.SelectedValue;
-            venta.FormaPago = (FormaDePagoEnum)comboBoxFormadePago.SelectedValue;
-            venta.Fecha = DateTime.Now;
+            var ventaFantasma = new venta();
+            ventaFantasma.ClienteId = (int)comboBoxCliente.SelectedValue;
+            ventaFantasma.FormaPago = (FormaDePagoEnum)comboBoxFormadePago.SelectedValue;
+            ventaFantasma.Fecha = DateTime.Now;
 
-            venta.Total = numericTotal.Value;
-            venta.Iva = venta.Total * 0.21m;
+            ventaFantasma.Total = numericTotal.Value;
+            ventaFantasma.Iva = venta.Total * 0.21m;
 
-            venta.Cliente = null;
-            venta.Detallesventa.ToList().ForEach(dv => dv.Producto = null);
-            venta.Detallesventa.ToList().ForEach(dv => dv.Venta = null);
-            await ventaService.AddAsync(venta);
+            ventaFantasma.Cliente = null;
+            ventaFantasma.Detallesventa.ToList().ForEach(dv => dv.Producto = null);
+            ventaFantasma.Detallesventa.ToList().ForEach(dv => dv.Venta = null);
+            var nuevaVenta = await ventaService.AddAsync(ventaFantasma);
+            var facturaVentaViewReport = new FacturaVentasViewReport(nuevaVenta);
+            facturaVentaViewReport.ShowDialog();
+
         }
     }
 }

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             comboBoxCliente = new ComboBox();
             comboBoxFormadePago = new ComboBox();
             label1 = new Label();
@@ -150,15 +150,15 @@
             gridDetalleVentas.AllowUserToDeleteRows = false;
             gridDetalleVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             gridDetalleVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            gridDetalleVentas.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.Format = "N2";
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            gridDetalleVentas.DefaultCellStyle = dataGridViewCellStyle2;
             gridDetalleVentas.Location = new Point(12, 195);
             gridDetalleVentas.Name = "gridDetalleVentas";
             gridDetalleVentas.ReadOnly = true;
@@ -372,9 +372,8 @@
             Controls.Add(comboBoxFormadePago);
             Controls.Add(comboBoxCliente);
             Controls.Add(panel1);
-            FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Name = "RegistroVentaView";
-            StartPosition = FormStartPosition.CenterScreen;
+            StartPosition = FormStartPosition.CenterParent;
             Text = "Ventas";
             ((System.ComponentModel.ISupportInitialize)gridDetalleVentas).EndInit();
             panel1.ResumeLayout(false);
