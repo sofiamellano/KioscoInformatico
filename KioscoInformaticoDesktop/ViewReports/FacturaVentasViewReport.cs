@@ -31,8 +31,9 @@ namespace KioscoInformaticoDesktop.ViewReports
 
         public FacturaVentasViewReport(Venta? nuevaVenta)
         {
-            this.nuevaVenta = nuevaVenta;
+            
             InitializeComponent();
+            this.nuevaVenta = nuevaVenta;
             reporte = new ReportViewer();
 
             reporte.Dock = DockStyle.Fill;
@@ -42,10 +43,10 @@ namespace KioscoInformaticoDesktop.ViewReports
         private void FacturaVentasViewReport_Load(object sender, EventArgs e)
         {
             reporte.LocalReport.ReportEmbeddedResource = "KioscoInformaticoDesktop.Reports.FacturaVentaReport.rdlc";
-            var venta = new { Id = nuevaVenta.Id, Fecha = nuevaVenta.Fecha, NombreCliente = nuevaVenta.Cliente.Nombre, Iva = nuevaVenta.Iva , FormaPago = nuevaVenta.FormaPago, Total = nuevaVenta.Total };
+            var venta = new List<object> { new { Id = nuevaVenta.Id, Fecha = nuevaVenta.Fecha, NombreCliente = nuevaVenta.Cliente.Nombre, Iva = nuevaVenta.Iva, FormaPago = nuevaVenta.FormaPago.ToString(), Total = nuevaVenta.Total } } ;
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSVenta", venta));
 
-            var detallesVenta = nuevaVenta.Detallesventa.Select(dv => new { NombreProducto = dv.Producto.Nombre, Precio = dv.PrecioUnitario, Cantidad = dv.Cantidad, Subtotal = dv.Subtotal });
+            var detallesVenta = nuevaVenta.Detallesventa.Select(dv => new { NombreProducto = dv.Producto.Nombre, PrecioUnitario = dv.PrecioUnitario, Cantidad = dv.Cantidad, SubTotal = dv.Subtotal });
             reporte.LocalReport.DataSources.Add(new ReportDataSource("DSDetallesVenta", detallesVenta));
 
             reporte.SetDisplayMode(DisplayMode.PrintLayout);

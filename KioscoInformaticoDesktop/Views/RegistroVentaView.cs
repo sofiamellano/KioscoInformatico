@@ -114,18 +114,14 @@ namespace KioscoInformaticoDesktop.GenerateCompraView
         private async void btnFinalizarVenta_Click(object sender, EventArgs e)
         {
             // cargamos los datos de la venta
-            var ventaFantasma = new venta();
-            ventaFantasma.ClienteId = (int)comboBoxCliente.SelectedValue;
-            ventaFantasma.FormaPago = (FormaDePagoEnum)comboBoxFormadePago.SelectedValue;
-            ventaFantasma.Fecha = DateTime.Now;
+            venta.ClienteId = (int)comboBoxCliente.SelectedValue;
+            venta.Cliente = (Cliente)comboBoxCliente.SelectedItem;
+            venta.FormaPago = (FormaDePagoEnum)comboBoxFormadePago.SelectedValue;
+            venta.Fecha = DateTime.Now;
 
-            ventaFantasma.Total = numericTotal.Value;
-            ventaFantasma.Iva = venta.Total * 0.21m;
-
-            ventaFantasma.Cliente = null;
-            ventaFantasma.Detallesventa.ToList().ForEach(dv => dv.Producto = null);
-            ventaFantasma.Detallesventa.ToList().ForEach(dv => dv.Venta = null);
-            var nuevaVenta = await ventaService.AddAsync(ventaFantasma);
+            venta.Total = numericTotal.Value;
+            venta.Iva = venta.Total * 0.21m;
+            var nuevaVenta = await ventaService.AddAsync(venta);
             var facturaVentaViewReport = new FacturaVentasViewReport(nuevaVenta);
             facturaVentaViewReport.ShowDialog();
 

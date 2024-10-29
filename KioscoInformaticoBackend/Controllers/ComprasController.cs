@@ -78,6 +78,12 @@ namespace KioscoInformaticoBackend.Controllers
         [HttpPost]
         public async Task<ActionResult<Compra>> PostCompra(Compra compra)
         {
+            _context.Attach(compra.Proveedor);
+
+            foreach (var detalle in compra.Detallescompra)
+            {
+                _context.Attach(detalle.Producto);
+            }
             _context.Compras.Add(compra);
             await _context.SaveChangesAsync();
 

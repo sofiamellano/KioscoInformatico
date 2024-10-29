@@ -61,5 +61,11 @@ namespace KioscoInformaticoDesktop
             RegistroVentaView registroVentaView = new RegistroVentaView();
             registroVentaView.ShowDialog();
         }
+
+        private void iconMenuItemCompras_Click(object sender, EventArgs e)
+        {
+            ComprasView comprasView = new ComprasView();
+            comprasView.ShowDialog();
+        }
     }
 }
