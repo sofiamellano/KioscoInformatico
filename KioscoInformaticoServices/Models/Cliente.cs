@@ -20,6 +20,10 @@ public partial class Cliente
 
     public virtual Localidad? Localidad { get; set; }
     public bool Eliminado { get; set; } = false;
+    public override string ToString()
+    {
+        return Nombre;
+    }
 
-  //  public virtual ICollection<Venta> Venta { get; set; } = new List<Venta>();
+    //  public virtual ICollection<Venta> Venta { get; set; } = new List<Venta>();
 }

@@ -25,7 +25,7 @@ namespace KioscoInformaticoBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Venta>>> GetVentas()
         {
-            return await _context.Ventas.ToListAsync();
+            return await _context.Ventas.Include(venta=>venta.Cliente).Include(venta=>venta.Detallesventa).ThenInclude(detalle=>detalle.Producto).ToListAsync();
         }
 
         // GET: api/Ventas/5
