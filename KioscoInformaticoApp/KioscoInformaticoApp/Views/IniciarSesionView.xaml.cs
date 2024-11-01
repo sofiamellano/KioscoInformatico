@@ -20,21 +20,10 @@ public partial class IniciarSesionView : ContentPage
 
     private async void OnReceiveMessage(Message mensaje)
     {
-        if (mensaje.Value == "AbrirProductos")
+        
+        if (mensaje.Value == "AbrirkioscoShell")
         {
-            await Navigation.PushAsync(new ProductosView());
-        }
-        if (mensaje.Value == "AbrirOfertas")
-        {
-            await Navigation.PushAsync(new ProductosEnOferta());
-        }
-        if (mensaje.Value == "AgregarProducto")
-        {
-            await Navigation.PushAsync(new AddEditProductoView());
-        }
-        if (mensaje.Value == "EditarProducto")
-        {
-            await Navigation.PushAsync(new AddEditProductoView(mensaje.ProductoAEditar));
+            await Navigation.PushAsync(new KioscoShell());
         }
         if (mensaje.Value == "CerrarVentana")
         {

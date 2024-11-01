@@ -88,7 +88,7 @@ namespace KioscoInformaticoApp.ViewModels
                     Precio = this.Precio,
                     Oferta = this.Oferta
                 };
-                await productoService.UpdateAsync(producto);
+                await productoService.AddAsync(producto);
             }
             WeakReferenceMessenger.Default.Send(new Message("CerrarVentana"));
         }
