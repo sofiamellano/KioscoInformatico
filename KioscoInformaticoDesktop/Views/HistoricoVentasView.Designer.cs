@@ -28,15 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             label2 = new Label();
             panel1 = new Panel();
-            panel2 = new Panel();
+            panelFiltrado = new Panel();
             btnFiltrar = new FontAwesome.Sharp.IconButton();
-            dateTimePicker1 = new DateTimePicker();
-            dateTimePicker2 = new DateTimePicker();
             label4 = new Label();
             label5 = new Label();
             dataGridVentas = new DataGridView();
@@ -48,8 +46,10 @@
             label8 = new Label();
             label7 = new Label();
             checkBoxActivarFIltrado = new CheckBox();
+            dateTimeDesde = new DateTimePicker();
+            dateTimeHasta = new DateTimePicker();
             panel1.SuspendLayout();
-            panel2.SuspendLayout();
+            panelFiltrado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridVentas).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
@@ -76,20 +76,20 @@
             panel1.Size = new Size(802, 52);
             panel1.TabIndex = 32;
             // 
-            // panel2
+            // panelFiltrado
             // 
-            panel2.BackColor = SystemColors.Control;
-            panel2.BorderStyle = BorderStyle.Fixed3D;
-            panel2.Controls.Add(btnFiltrar);
-            panel2.Controls.Add(dateTimePicker1);
-            panel2.Controls.Add(dateTimePicker2);
-            panel2.Controls.Add(label4);
-            panel2.Controls.Add(label5);
-            panel2.Enabled = false;
-            panel2.Location = new Point(190, 78);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(579, 64);
-            panel2.TabIndex = 34;
+            panelFiltrado.BackColor = SystemColors.Control;
+            panelFiltrado.BorderStyle = BorderStyle.Fixed3D;
+            panelFiltrado.Controls.Add(dateTimeHasta);
+            panelFiltrado.Controls.Add(dateTimeDesde);
+            panelFiltrado.Controls.Add(btnFiltrar);
+            panelFiltrado.Controls.Add(label4);
+            panelFiltrado.Controls.Add(label5);
+            panelFiltrado.Enabled = false;
+            panelFiltrado.Location = new Point(189, 78);
+            panelFiltrado.Name = "panelFiltrado";
+            panelFiltrado.Size = new Size(579, 64);
+            panelFiltrado.TabIndex = 34;
             // 
             // btnFiltrar
             // 
@@ -109,22 +109,6 @@
             btnFiltrar.TextAlign = ContentAlignment.MiddleRight;
             btnFiltrar.UseVisualStyleBackColor = false;
             btnFiltrar.Click += btnFiltrar_Click;
-            // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(255, 27);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(123, 23);
-            dateTimePicker1.TabIndex = 33;
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Format = DateTimePickerFormat.Short;
-            dateTimePicker2.Location = new Point(32, 27);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(123, 23);
-            dateTimePicker2.TabIndex = 32;
             // 
             // label4
             // 
@@ -153,35 +137,35 @@
             dataGridVentas.AllowUserToAddRows = false;
             dataGridVentas.AllowUserToDeleteRows = false;
             dataGridVentas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Control;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dataGridVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dataGridVentas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dataGridVentas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = SystemColors.Window;
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dataGridVentas.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.NullValue = null;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridVentas.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridVentas.Location = new Point(3, 148);
             dataGridVentas.Name = "dataGridVentas";
             dataGridVentas.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Control;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dataGridVentas.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dataGridVentas.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dataGridVentas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dataGridVentas.Size = new Size(799, 223);
             dataGridVentas.TabIndex = 41;
@@ -280,12 +264,28 @@
             checkBoxActivarFIltrado.UseVisualStyleBackColor = false;
             checkBoxActivarFIltrado.CheckedChanged += checkBoxActivarFIltrado_CheckedChanged;
             // 
+            // dateTimeDesde
+            // 
+            dateTimeDesde.Format = DateTimePickerFormat.Short;
+            dateTimeDesde.Location = new Point(50, 31);
+            dateTimeDesde.Name = "dateTimeDesde";
+            dateTimeDesde.Size = new Size(98, 23);
+            dateTimeDesde.TabIndex = 55;
+            // 
+            // dateTimeHasta
+            // 
+            dateTimeHasta.Format = DateTimePickerFormat.Short;
+            dateTimeHasta.Location = new Point(267, 31);
+            dateTimeHasta.Name = "dateTimeHasta";
+            dateTimeHasta.Size = new Size(98, 23);
+            dateTimeHasta.TabIndex = 56;
+            // 
             // HistoricoVentasView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(panel2);
+            Controls.Add(panelFiltrado);
             Controls.Add(checkBoxActivarFIltrado);
             Controls.Add(numericUpDown3);
             Controls.Add(numericUpDown2);
@@ -301,8 +301,8 @@
             Text = "HistoricoVentasView";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
+            panelFiltrado.ResumeLayout(false);
+            panelFiltrado.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridVentas).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
@@ -329,13 +329,11 @@
         private Label label8;
         private Label label7;
         private CheckBox checkBoxActivarFIltrado;
-        private DateTimePicker dateTimeHasta;
-        private DateTimePicker dateTimeDesde;
         private Panel panel2;
         private FontAwesome.Sharp.IconButton btnFiltrar;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker2;
         private Label label4;
         private Label label5;
+        private DateTimePicker dateTimeHasta;
+        private DateTimePicker dateTimeDesde;
     }
 }

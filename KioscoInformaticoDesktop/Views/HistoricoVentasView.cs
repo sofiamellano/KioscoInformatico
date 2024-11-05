@@ -84,7 +84,7 @@ namespace KioscoInformaticoDesktop.Views
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             DisplayDataGridFilter();
-            CalcTotal();
+            CalcTotal(); 
         }
 
        
