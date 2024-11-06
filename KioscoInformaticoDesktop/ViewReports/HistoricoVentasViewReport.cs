@@ -16,11 +16,12 @@ namespace KioscoInformaticoDesktop.ViewReports
     {
         ReportViewer reporte;
         private List<Venta> listVentas;
-        private string tituloInforme;
-        public HistoricoVentasViewReport(List<Venta> ventas, string TituloInforme)
+        string tituloInforme;
+        public HistoricoVentasViewReport(List<Venta> ventas, string tituloInforme)
         {
             InitializeComponent();
             listVentas = ventas;
+            this.tituloInforme = tituloInforme;
             reporte = new ReportViewer();
 
             reporte.Dock = DockStyle.Fill;

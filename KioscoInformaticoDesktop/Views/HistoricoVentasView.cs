@@ -83,16 +83,16 @@ namespace KioscoInformaticoDesktop.Views
 
         private void btnImprimirInforme_Click(object sender, EventArgs e)
         {
-            var TituloInforme = "Informe de Ventas";
+            var tituloInforme = "Informe de Ventas";
             var ventasAImprimir = ventas;
             
             if (checkBoxActivarFIltrado.Checked)
             {
                 ventasAImprimir = ventas.Where(venta => venta.Fecha >= dateTimeDesde.Value && venta.Fecha <= dateTimeHasta.Value).ToList();
-                TituloInforme += $" desde {dateTimeDesde.Value.ToString("dd/MM/yyyy")} hasta {dateTimeHasta.Value.ToString("dd/MM/yyyy")}";
+                tituloInforme += $" desde {dateTimeDesde.Value.ToString("dd/MM/yyyy")} hasta {dateTimeHasta.Value.ToString("dd/MM/yyyy")}";
             }
 
-            var historicoVentasViewReport = new HistoricoVentasViewReport(ventas, TituloInforme);
+            var historicoVentasViewReport = new HistoricoVentasViewReport(ventas, tituloInforme);
             historicoVentasViewReport.ShowDialog();
         }
     }
