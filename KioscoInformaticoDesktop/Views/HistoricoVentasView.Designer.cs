@@ -34,6 +34,8 @@
             label2 = new Label();
             panel1 = new Panel();
             panelFiltrado = new Panel();
+            dateTimeHasta = new DateTimePicker();
+            dateTimeDesde = new DateTimePicker();
             btnFiltrar = new FontAwesome.Sharp.IconButton();
             label4 = new Label();
             label5 = new Label();
@@ -46,8 +48,6 @@
             label8 = new Label();
             label7 = new Label();
             checkBoxActivarFIltrado = new CheckBox();
-            dateTimeDesde = new DateTimePicker();
-            dateTimeHasta = new DateTimePicker();
             panel1.SuspendLayout();
             panelFiltrado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridVentas).BeginInit();
@@ -90,6 +90,22 @@
             panelFiltrado.Name = "panelFiltrado";
             panelFiltrado.Size = new Size(579, 64);
             panelFiltrado.TabIndex = 34;
+            // 
+            // dateTimeHasta
+            // 
+            dateTimeHasta.Format = DateTimePickerFormat.Short;
+            dateTimeHasta.Location = new Point(267, 31);
+            dateTimeHasta.Name = "dateTimeHasta";
+            dateTimeHasta.Size = new Size(98, 23);
+            dateTimeHasta.TabIndex = 56;
+            // 
+            // dateTimeDesde
+            // 
+            dateTimeDesde.Format = DateTimePickerFormat.Short;
+            dateTimeDesde.Location = new Point(50, 31);
+            dateTimeDesde.Name = "dateTimeDesde";
+            dateTimeDesde.Size = new Size(98, 23);
+            dateTimeDesde.TabIndex = 55;
             // 
             // btnFiltrar
             // 
@@ -187,6 +203,7 @@
             btnImprimirInforme.Text = "Imprimir Informe";
             btnImprimirInforme.TextAlign = ContentAlignment.MiddleRight;
             btnImprimirInforme.UseVisualStyleBackColor = false;
+            btnImprimirInforme.Click += btnImprimirInforme_Click;
             // 
             // numericUpDown3
             // 
@@ -263,22 +280,6 @@
             checkBoxActivarFIltrado.Text = "Activar Filtrado";
             checkBoxActivarFIltrado.UseVisualStyleBackColor = false;
             checkBoxActivarFIltrado.CheckedChanged += checkBoxActivarFIltrado_CheckedChanged;
-            // 
-            // dateTimeDesde
-            // 
-            dateTimeDesde.Format = DateTimePickerFormat.Short;
-            dateTimeDesde.Location = new Point(50, 31);
-            dateTimeDesde.Name = "dateTimeDesde";
-            dateTimeDesde.Size = new Size(98, 23);
-            dateTimeDesde.TabIndex = 55;
-            // 
-            // dateTimeHasta
-            // 
-            dateTimeHasta.Format = DateTimePickerFormat.Short;
-            dateTimeHasta.Location = new Point(267, 31);
-            dateTimeHasta.Name = "dateTimeHasta";
-            dateTimeHasta.Size = new Size(98, 23);
-            dateTimeHasta.TabIndex = 56;
             // 
             // HistoricoVentasView
             // 

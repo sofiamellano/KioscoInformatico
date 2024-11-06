@@ -1,16 +1,10 @@
 ﻿using KioscoInformaticoDesktop.ExtensionMethods;
+using KioscoInformaticoDesktop.ViewReports;
 using KioscoInformaticoServices.Models;
 using KioscoInformaticoServices.Services;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using KioscoInformaticoDesktop.ViewReports;
+
 
 namespace KioscoInformaticoDesktop.Views
 {
@@ -60,7 +54,7 @@ namespace KioscoInformaticoDesktop.Views
             if (checkBoxActivarFIltrado.Checked)
             {
                 dateTimeDesde.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
-                dateTimeHasta.Value = DateTime.Now;
+                dateTimeHasta.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 59);
                 DisplayDataGridFilter();
                 CalcTotal();
             }
@@ -84,9 +78,22 @@ namespace KioscoInformaticoDesktop.Views
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             DisplayDataGridFilter();
-            CalcTotal(); 
+            CalcTotal();
         }
 
-       
+        private void btnImprimirInforme_Click(object sender, EventArgs e)
+        {
+            var TituloInforme = "Informe de Ventas";
+            var ventasAImprimir = ventas;
+            
+            if (checkBoxActivarFIltrado.Checked)
+            {
+                ventasAImprimir = ventas.Where(venta => venta.Fecha >= dateTimeDesde.Value && venta.Fecha <= dateTimeHasta.Value).ToList();
+                TituloInforme += $" desde {dateTimeDesde.Value.ToString("dd/MM/yyyy")} hasta {dateTimeHasta.Value.ToString("dd/MM/yyyy")}";
+            }
+
+            var historicoVentasViewReport = new HistoricoVentasViewReport(ventas, TituloInforme);
+            historicoVentasViewReport.ShowDialog();
+        }
     }
 }
