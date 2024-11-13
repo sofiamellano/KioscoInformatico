@@ -10,7 +10,6 @@
 else
 {
     <EditForm Model="producto" OnValidSubmit="AgregarProducto">
-        <DataAnnotationsValidator />
 
         <div class="form-group mb-2">
             <label for="Nombre">Nombre:</label>
@@ -22,6 +21,12 @@ else
             <label for="Precio">Precio:</label>
             <InputNumber id="Precio" class="form-control" @bind-Value="producto.Precio" />
             <ValidationMessage For="@(() => producto.Precio)" />
+        </div>
+
+        <div class="form-group mb-2">
+            <label for="Imagen">Imagen:</label>
+            <ImageUpload OnUploadFile="ArchivoSubido" />
+             <img class="card-img mb-2" src="@producto.Imagen"/>
         </div>
 
         <button type="submit" class="btn btn-primary mb-2">Guardar</button>
@@ -58,5 +63,10 @@ else
 
             NavigationManager.NavigateTo("/productos");
         }
+    }
+    private void ArchivoSubido(string urlImagen)
+    {
+        producto.Imagen = urlImagen;
+        StateHasChanged();
     }
 }
