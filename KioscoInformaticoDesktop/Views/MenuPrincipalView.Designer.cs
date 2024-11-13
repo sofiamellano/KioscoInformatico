@@ -245,6 +245,7 @@
             StartPosition = FormStartPosition.CenterParent;
             Text = "Kiosco Informatico Desktop";
             WindowState = FormWindowState.Maximized;
+            Load += MenuPrincipalView_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             toolStrip1.ResumeLayout(false);

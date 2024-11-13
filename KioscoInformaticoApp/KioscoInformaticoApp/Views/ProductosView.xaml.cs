@@ -9,14 +9,5 @@ public partial class ProductosView : ContentPage
 		InitializeComponent();
 	}
 
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-        var viewmodel = this.BindingContext as ProductosViewModel;
-        //if (viewmodel.NotaSeleccionada != null)
-        //{
-        viewmodel.ObtenerProductos();
-        viewmodel.SelectedProducto = null;
-        //}
-    }
+   
 }

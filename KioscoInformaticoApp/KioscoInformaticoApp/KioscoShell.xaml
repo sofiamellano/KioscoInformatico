@@ -4,15 +4,19 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:views="clr-namespace:KioscoInformaticoApp.Views"
+    xmlns:viewModels="clr-namespace:KioscoInformaticoApp.ViewModels"
     xmlns:contentviews="clr-namespace:KioscoInformaticoApp.ContentViews"
     xmlns:local="clr-namespace:KioscoInformaticoApp"
-    Shell.FlyoutBehavior="Flyout"
+    FlyoutBehavior="Disabled"
     Title="KioscoInformaticoApp"
-    
     FlyoutBackgroundImage="photo.jpg"
     FlyoutBackgroundImageAspect="AspectFill"
     FlyoutHeaderBehavior="CollapseOnScroll">
 
+    <Shell.BindingContext>
+        <viewModels:KioscoShellViewModel />
+    </Shell.BindingContext>
+    
     <Shell.FlyoutHeader>
         <contentviews:FlyoutHeader />
     </Shell.FlyoutHeader>
@@ -22,7 +26,7 @@
     </Shell.FlyoutFooter>
 
     <FlyoutItem Route="kioscoApp"
-                FlyoutDisplayOptions="AsMultipleItems">
+                FlyoutDisplayOptions="AsMultipleItems" x:Name="FlyoutItemsPrincipal">
 
         <ShellContent
             Title="Home"
@@ -47,10 +51,18 @@
                  Title="Agregar Producto"
                  Icon="dog.png"
                  ContentTemplate="{DataTemplate views:AddEditProductoView}"
-                 Route="AgregarProducto" />
+                 Route="AgregarEditarProducto" />
         </Tab>
         
     </FlyoutItem>
-    <MenuItem Text="Chau Chau"
+    <MenuItem Text="Cerrar Sesion"
+                Command="{Binding LogoutCommand}"
               IconImageSource="random.png"/>
+
+    <ShellContent
+         Title="Iniciar Sesion"
+         Icon="dog.png"
+         ContentTemplate="{DataTemplate views:IniciarSesionView}"
+         Route="Login"
+        IsVisible="{Binding IsUserLogout}"/>
 </Shell>

@@ -91,7 +91,7 @@ namespace KioscoInformaticoApp.ViewModels
     //}
 
     public class ProductosEnOfertaViewModel : ObjectNotification
-    {
+   {
         private GenericService<Producto> productoService = new GenericService<Producto>();
 
         private string filterProducts;
@@ -162,7 +162,7 @@ namespace KioscoInformaticoApp.ViewModels
             }
         }
 
-        private async Task ObtenerProductos()
+        public async Task ObtenerProductos()
         {
             FilterProducts = string.Empty;
             ActivityStart = true;

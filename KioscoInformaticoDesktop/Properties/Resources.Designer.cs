@@ -59,5 +59,15 @@ namespace KioscoInformaticoDesktop.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap fondoKiosco {
+            get {
+                object obj = ResourceManager.GetObject("fondoKiosco", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
